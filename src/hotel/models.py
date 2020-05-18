@@ -13,8 +13,8 @@ class Room(models.Model):
 
 class Booking(models.Model):
     customer_full_name = models.CharField(max_length=100)
-    start_datetime = models.DateTimeField(null=False, default=datetime.now())
-    end_datetime = models.DateTimeField(null=False, default=datetime.now())
+    start_datetime = models.DateField(null=False, default=datetime.now())
+    end_datetime = models.DateField(null=False, default=datetime.now())
     last_modified = models.DateTimeField(null=False, default=datetime.now())
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='bookings')
 
@@ -23,8 +23,8 @@ class Booking(models.Model):
 
 class Checkin(models.Model):
     customer_full_name = models.CharField(max_length=100)
-    start_datetime = models.DateTimeField(null=False, default=datetime.now())
-    end_datetime = models.DateTimeField(null=False, default=datetime.now())
+    start_datetime = models.DateField(null=False, default=datetime.now())
+    end_datetime = models.DateField(null=False, default=datetime.now())
     last_modified = models.DateTimeField(null=False, default=datetime.now())
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='checkins')
 
