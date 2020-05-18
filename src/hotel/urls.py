@@ -5,8 +5,8 @@ from django.conf import settings
 from .views import RoomsListView, AdminView
 
 urlpatterns = [
-    path('', AdminView.as_view(), name='adminview'),
-    path('rooms', RoomsListView.as_view(), name='roomslistview'),
+    path('', AdminView.as_view(), name='admin'),
+    path('rooms', RoomsListView.as_view(), name='rooms'),
 
 ]
 
