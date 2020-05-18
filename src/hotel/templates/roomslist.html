@@ -63,6 +63,7 @@
     </div>
   </div>
     <ul class="list-group">
+      <li class="list-group-item text-right"><span class="pull-left"><a href="{% url 'addroom' %}">Add new room</a></li>
       {% for room in rooms %}
       <a href="{% url 'room' id=room.id %}">
         <li class="list-group-item text-left">
