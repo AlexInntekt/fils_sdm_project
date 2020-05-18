@@ -11,6 +11,20 @@ class AdminView(TemplateView):
     template_name = 'admin.html'
 
 
+
+class CheckinsListView(TemplateView):
+    template_name = 'checkins_list.html'
+
+
+    def get(self, request, *args, **kwargs):
+
+        context = {}
+
+        context['checkins'] = Checkin.objects.all()
+
+        return render(request, self.template_name, context)
+
+
 class RoomsListView(TemplateView):
     template_name = 'roomslist.html'
 

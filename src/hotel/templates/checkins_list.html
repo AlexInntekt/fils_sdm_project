@@ -34,13 +34,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'admin' %}">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'rooms' %}">Rooms <span class="sr-only">(current)</span></a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'admin' %}">Admin <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'rooms' %}">Rooms</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{% url 'checkins' %}">Checkins</a>
       </li>
       <li class="nav-item">
@@ -59,15 +59,33 @@
 <div class="container">
   <div class="row" style="background-color: white">
     <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
+      
     </div>
   </div>
+    <ul class="list-group">
+      <li class="list-group-item text-right"><span class="pull-left"><a href="">Add new checkin</a></li>
+      {% for checkin in checkins %}
+      
+        <li class="list-group-item text-left">
+            <a href="">{{checkin}}</a>
+            <p>Checkin ID: {{checkin.id}}</p>
+            <p>For room ID: {{checkin.room.id}}</p>
+            <p>Customer name: {{checkin.customer_full_name}}</p>
+            <p>For period of time: {{checkin.start_datetime}} - {{checkin.end_datetime}}</p>
+            <small id="bed_type" class="form-text text-muted">Last modified on: {{checkin.last_modified}}</small>
+        </li>
+      
+      {% endfor %}
+      <!-- <li class="list-group-item text-muted">Profil</li>
+      <li class="list-group-item text-left"> {{user.first_name}} {{user.last_name}}
+        {% if user.first_name == "" and user.last_name == "" %}
+           -
+        {% endif %}
+      </li>
+      <li class="list-group-item text-right"><span class="pull-left"><strong>Creat:</strong></span> {{ user.date_joined|date:'d M Y H:i' }}</li>
+      <li class="list-group-item text-right"><span class="pull-left"><strong>Activ:</strong></span> {{ user.last_login|date:'d M Y H:i' }}</li> -->
+
+    </ul>
 </div>
 
 
