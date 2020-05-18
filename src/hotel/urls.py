@@ -2,11 +2,12 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings 
 
-from .views import RoomsListView, AdminView
+from .views import RoomsListView, RoomDetailView, AdminView
 
 urlpatterns = [
     path('', AdminView.as_view(), name='admin'),
     path('rooms', RoomsListView.as_view(), name='rooms'),
+    path('room/id=<int:id>', RoomDetailView.as_view(), name='room'),
 
 ]
 
