@@ -67,7 +67,7 @@
       {% for checkin in checkins %}
       
         <li class="list-group-item text-left">
-            <a href="">{{checkin}}</a>
+            <a href="{% url 'editcheckin' id=checkin.id %}">{{checkin}}</a>
             <p>Checkin ID: {{checkin.id}}</p>
             <p>For room ID: {{checkin.room.id}}</p>
             <p>Customer name: {{checkin.customer_full_name}}</p>

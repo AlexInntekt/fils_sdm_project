@@ -10,6 +10,52 @@ from .models import Room, Booking, Checkin
 class AdminView(TemplateView):
     template_name = 'admin.html'
 
+class CheckinEditView(TemplateView):
+    template_name = 'edit_checkin.html'
+
+    def get(self, request, *args, **kwargs):
+
+        checkin_id = kwargs['id']
+        checkin = Checkin.objects.get(id=checkin_id)
+        context = {}
+
+        context['checkin'] = checkin
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        context = {}
+        post = request.POST
+        print(post)
+
+        try:
+            action = post['action']
+            checkin_id = kwargs['id']
+
+            if action == 'delete':
+                checkin = Checkin.objects.get(id=checkin_id)
+                checkin.delete()
+                return redirect('checkins')
+
+            else:
+                room = Room.objects.get(id=post['room'])
+                customer = post['customer']
+                starting_date = post['starting_date']
+                end_date = post['end_date']
+
+                checkin = Checkin.objects.get(id=checkin_id)
+
+                checkin.room = room
+                checkin.customer = customer
+                checkin.starting_date = starting_date
+                checkin.end_date = end_date
+                checkin.last_modified = datetime.now()
+                checkin.save()
+
+                context['checkin'] = checkin
+                context['success'] = "The change was applied succesfully!"
+        except Exception as e:
+            context['error'] = "One problem occured: "+str(e)
+        return render(request, self.template_name, context)
 
 
 class CheckinsListView(TemplateView):
