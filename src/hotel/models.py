@@ -5,6 +5,7 @@ from datetime import datetime
 class Room(models.Model):
     bed_type = models.CharField(max_length=20)
     facilities = models.TextField(null=True)
+    price = models.FloatField(default=0)
 
     def __str__(self):
         return("ID:#{} {}".format(self.id, self.bed_type))

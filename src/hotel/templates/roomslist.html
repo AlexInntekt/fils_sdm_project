@@ -59,11 +59,27 @@
 <div class="container">
   <div class="row" style="background-color: white">
     <div class="col-sm">
-      {% for room in rooms %}
-        {{room}}
-      {% endfor %}
+      
     </div>
   </div>
+    <ul class="list-group">
+      {% for room in rooms %}
+      <a href="{% url 'room' id=room.id %}">
+        <li class="list-group-item text-left">
+            {{room}}
+        </li>
+      </a>
+      {% endfor %}
+      <!-- <li class="list-group-item text-muted">Profil</li>
+      <li class="list-group-item text-left"> {{user.first_name}} {{user.last_name}}
+        {% if user.first_name == "" and user.last_name == "" %}
+           -
+        {% endif %}
+      </li>
+      <li class="list-group-item text-right"><span class="pull-left"><strong>Creat:</strong></span> {{ user.date_joined|date:'d M Y H:i' }}</li>
+      <li class="list-group-item text-right"><span class="pull-left"><strong>Activ:</strong></span> {{ user.last_login|date:'d M Y H:i' }}</li> -->
+
+    </ul>
 </div>
 
 
