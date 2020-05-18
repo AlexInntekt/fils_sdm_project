@@ -68,6 +68,7 @@
       <a href="{% url 'room' id=room.id %}">
         <li class="list-group-item text-left">
             {{room}}
+            <small id="bed_type" class="form-text text-muted">Last modified on: {{room.last_modified}}</small>
         </li>
       </a>
       {% endfor %}

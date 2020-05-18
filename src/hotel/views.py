@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
@@ -45,6 +47,7 @@ class RoomAddView(TemplateView):
             room.bed_type = bed_type
             room.facilities = facilities
             room.price = price
+            room.last_modified = datetime.now()
             room.save()
 
             # context['room'] = room
@@ -91,6 +94,7 @@ class RoomDetailView(TemplateView):
                 room.bed_type = bed_type
                 room.facilities = facilities
                 room.price = price
+                room.last_modified = datetime.now()
                 room.save()
 
                 context['room'] = room
