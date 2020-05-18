@@ -3,7 +3,11 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 
+class AdminView(TemplateView):
+    template_name = 'admin.html'
+
+
 class RoomsListView(TemplateView):
     template_name = 'roomslist.html'
 
-    
+

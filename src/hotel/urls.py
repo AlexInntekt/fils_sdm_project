@@ -2,9 +2,10 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings 
 
-from .views import RoomsListView
+from .views import RoomsListView, AdminView
 
 urlpatterns = [
+    path('', AdminView.as_view(), name='adminview'),
     path('rooms', RoomsListView.as_view(), name='roomslistview'),
 
 ]
