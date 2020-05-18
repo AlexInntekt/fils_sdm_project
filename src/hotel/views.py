@@ -5,3 +5,5 @@ from django.views.generic import TemplateView
 
 class RoomsListView(TemplateView):
     template_name = 'roomslist.html'
+
+    
