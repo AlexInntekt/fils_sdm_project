@@ -1,8 +1,9 @@
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings 
+from django.contrib.auth.views import LoginView, LogoutView
 
-from .views import BookingEditView, BookingsListView, AdminView, RoomsListView, RoomDetailView, RoomAddView, AddCheckinView, CheckinsListView, CheckinEditView
+from .views import AddBookingView, BookingEditView, BookingsListView, AdminView, RoomsListView, RoomDetailView, RoomAddView, AddCheckinView, CheckinsListView, CheckinEditView
 
 urlpatterns = [
     path('', AdminView.as_view(), name='admin'),
@@ -13,7 +14,10 @@ urlpatterns = [
     path('checkin/id=<int:id>', CheckinEditView.as_view(), name='editcheckin'),
     path('checkins/add', AddCheckinView.as_view(), name='addcheckin'),
     path('bookings', BookingsListView.as_view(), name='bookings'),
-    path('booking/id=<int:id>', BookingEditView.as_view(), name='booking')
+    path('booking/id=<int:id>', BookingEditView.as_view(), name='booking'),
+    path('bookings/add', AddBookingView.as_view(), name='addbooking'),
+    path('login/$', LoginView.as_view(), name='login'),
+    path('logout/$', LogoutView.as_view(), name='logout'),
 
 ]
 

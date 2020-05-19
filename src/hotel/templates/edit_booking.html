@@ -83,7 +83,28 @@
           <h5>Booking number: {{booking.id}} </h5>
           <br>
           <label for="room">Room id:</label>
-          <input name="room" type="text" class="form-control" id="room" aria-describedby="room" placeholder="single / double.." value="{{ booking.room.id }}">
+          <!-- <input name="room" type="select" class="form-control" id="room" aria-describedby="room" placeholder="single / double.." value="{{ booking.room.id }}"> -->
+            <select id="room" onchange="showSelect();" class="form-control" name="room">
+                {% for room in rooms %}
+
+                  {% if room.id == booking.room.id %}
+                    <option value="{{ room.id }}" selected="selected">{{ room.id }}</option>
+                  {% else %}
+                    <option value="{{ room.id }}">{{ room.id }}</option>
+                  {% endif %}
+                
+                {% endfor %}
+            </select><br>
+
+            <!-- 
+              <select class="form-control" id="sel1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+             -->
+
           <small id="room" class="form-text text-muted">Reference to the room identification number.</small>
         </div>
 

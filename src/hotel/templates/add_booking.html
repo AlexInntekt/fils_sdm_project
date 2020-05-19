@@ -40,10 +40,10 @@
       <li class="nav-item " >
         <a class="nav-link" href="{% url 'rooms' %}">Rooms</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="{% url 'checkins' %}">Checkins</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="{% url 'bookings' %}">Bookings</a>
       </li>
       <li class="nav-item">
@@ -80,7 +80,7 @@
         <div class="form-group">
           <input type="hidden" id="action" name="action" value="edit">
 
-          <h5>Add a new checkin </h5>
+          <h5>Add a new booking </h5>
           <br>
           <label for="room">Room id:</label>
           <select id="room" onchange="showSelect();" class="form-control" name="room">

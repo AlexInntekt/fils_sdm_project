@@ -83,7 +83,17 @@
           <h5>Checkin number: {{checkin.id}} </h5>
           <br>
           <label for="room">Room id:</label>
-          <input name="room" type="text" class="form-control" id="room" aria-describedby="room" placeholder="single / double.." value="{{ checkin.room.id }}">
+          <select id="room" onchange="showSelect();" class="form-control" name="room">
+                {% for room in rooms %}
+
+                  {% if room.id == checkin.room.id %}
+                    <option value="{{ room.id }}" selected="selected">{{ room.id }}</option>
+                  {% else %}
+                    <option value="{{ room.id }}">{{ room.id }}</option>
+                  {% endif %}
+                
+                {% endfor %}
+            </select><br>
           <small id="bed_type" class="form-text text-muted">Reference to the room identification number.</small>
         </div>
 
