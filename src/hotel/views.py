@@ -70,7 +70,7 @@ class CheckinEditView(TemplateView):
                     context['checkin'] = checkin
                     context['success'] = "The change was applied succesfully!"
                 else:
-                    context['error'] = "Some old checkins overlap!"
+                    context['error'] = "Some old checkins overlap! Checkin with ID"+str(current_checkins.first().id)
         except Exception as e:
             context['error'] = "One problem occured: "+str(e)
         return render(request, self.template_name, context)
