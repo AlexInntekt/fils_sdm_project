@@ -65,15 +65,26 @@
 
 <div class="container">
   <div class="row" style="background-color: white">
-    <div class="col-sm">
-      One of three columns
+
+    <div class="col-sm-6">
+      <br>
+      <h1> Bună {{ user.username }}!</h1>
+          <a class="btn btn-default" href="" role="button">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"> </span> administrare
+          </a>
+          <a class="btn btn-default" href="{% url 'logout' %}" role="button">
+              <span class="glyphicon glyphicon-log-out" aria-hidden="true"> </span> logout
+          </a>
     </div>
-    <div class="col-sm">
-      One of three columns
+
+    <div class="col-sm-6">
+      <br>
+      <ul>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Creat:</strong></span> {{ user.date_joined|date:'d M Y H:i' }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Activ:</strong></span> {{ user.last_login|date:'d M Y H:i' }}</li>
+      </ul>
     </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
+
   </div>
 </div>
 
