@@ -17,7 +17,7 @@ urlpatterns = [
     path('booking/id=<int:id>', BookingEditView.as_view(), name='booking'),
     path('bookings/add', AddBookingView.as_view(), name='addbooking'),
     path('login/$', LoginView.as_view(), name='login'),
-    path('logout/$', LogoutView.as_view(), name='logout'),
+    path('logout/$', LogoutView.as_view(), {'template_name': 'iesit_afara.html'}, name='logout'),
 
 ]
 

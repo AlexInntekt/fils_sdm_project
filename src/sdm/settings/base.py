@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hotel',
+    'login',
     ]
 
 MIDDLEWARE = [
@@ -133,3 +134,5 @@ if DEBUG:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, "static_dirs"),
     )
+
+LOGIN_REDIRECT_URL = 'bookings'
