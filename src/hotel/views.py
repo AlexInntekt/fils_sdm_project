@@ -46,9 +46,12 @@ class CheckinEditView(TemplateView):
 
                 checkin.room = room
                 checkin.customer = customer
-                checkin.starting_date = 'aaa'#starting_date
-                checkin.end_date = end_date
+                checkin.start_datetime = datetime.strptime(str(starting_date),'%Y-%m-%d')#starting_date
+                checkin.end_datetime = datetime.strptime(str(end_date),'%Y-%m-%d')
                 checkin.last_modified = datetime.now()
+
+                Qd = Q((room__id=checkin.room.id) && ())
+                current_checkins = Checkin.objects.filter(Qd)
                 checkin.save()
 
                 context['checkin'] = checkin
