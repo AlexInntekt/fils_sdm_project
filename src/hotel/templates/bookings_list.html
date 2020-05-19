@@ -63,11 +63,11 @@
     </div>
   </div>
     <ul class="list-group">
-      <li class="list-group-item text-right"><span class="pull-left"><a href="{% url 'addroom' %}">Add new booking</a></li>
+      <li class="list-group-item text-right"><span class="pull-left"><a href="">Add new booking</a></li>
       {% for booking in bookings %}
       
         <li class="list-group-item text-left">
-            <a href="">{{booking}}</a>
+            <a href="{% url 'booking' id=booking.id %}">{{booking}}</a>
             <p>Booking ID: {{booking.id}}</p>
             <p>For room ID: {{booking.room.id}}</p>
             <p>Customer name: {{booking.customer_full_name}}</p>

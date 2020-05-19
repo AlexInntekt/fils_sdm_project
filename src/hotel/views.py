@@ -13,6 +13,19 @@ class AdminView(TemplateView):
     template_name = 'admin.html'
 
 
+class BookingEditView(TemplateView):
+    template_name = 'edit_booking.html'
+
+    def get(self, request, *args, **kwargs):
+
+        booking_id = kwargs['id']
+        booking = Booking.objects.get(id=booking_id)
+        context = {}
+
+        context['booking'] = booking
+        return render(request, self.template_name, context)
+
+
 class AddCheckinView(TemplateView):
     template_name = 'add_checkin.html'
 
