@@ -80,7 +80,7 @@
         <div class="form-group">
           <input type="hidden" id="action" name="action" value="edit">
 
-          <h5>Checkin number: {{checkin.id}}</h5>
+          <h5>Checkin number: {{checkin.id}} </h5>
           <br>
           <label for="room">Room id:</label>
           <input name="room" type="text" class="form-control" id="room" aria-describedby="room" placeholder="single / double.." value="{{ checkin.room.id }}">
@@ -97,15 +97,22 @@
 
         <div class="form-group">
           <label for="starting_date">Starting date:</label>
-          <input name="starting_date" type="date" class="form-control" id="starting_date" aria-describedby="starting_date" placeholder="" value="{{ checkin.starting_date }}">
+          <input name="starting_date" type="date" class="form-control" id="starting_date" value="{{checkin.start_datetime|date:'Y-m-d'}}">
+          
           <!-- <input type="date" name="birtdate" placeholder="select Birth date" > -->
         </div>  
 
+
+
+        <!-- <input name="starting_date" type="date" class="form-control" id="starting_date" value="2020-01-01"> -->
+
         <div class="form-group">
           <label for="end_date">Ending date:</label>
-          <input name="end_date" type="date" class="form-control" id="end_date" aria-describedby="end_date" placeholder="" value="{{ checkin.end_date }}">
+          <input name="end_date" type="date" class="form-control" id="end_date" aria-describedby="end_date" placeholder="" value="{{checkin.end_datetime|date:'Y-m-d'}}">
           <!-- <input type="date" name="birtdate" placeholder="select Birth date" > -->
         </div> 
+
+
 
 
 

@@ -46,7 +46,7 @@ class CheckinEditView(TemplateView):
 
                 checkin.room = room
                 checkin.customer = customer
-                checkin.starting_date = starting_date
+                checkin.starting_date = 'aaa'#starting_date
                 checkin.end_date = end_date
                 checkin.last_modified = datetime.now()
                 checkin.save()
