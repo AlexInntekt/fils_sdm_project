@@ -134,6 +134,17 @@ class CheckinEditView(TemplateView):
         return render(request, self.template_name, context)
 
 
+class BookingsListView(TemplateView):
+    template_name = 'bookings_list.html'
+
+
+    def get(self, request, *args, **kwargs):
+
+        context = {}
+
+        context['bookings'] = Booking.objects.all()
+
+        return render(request, self.template_name, context)
 
 class CheckinsListView(TemplateView):
     template_name = 'checkins_list.html'
